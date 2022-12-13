@@ -1,0 +1,21 @@
+<?php
+def total(data):
+    total_ = 0
+    for dish in data:
+        name = dish[:dish.rfind(' ')]
+        calor = float(dish[dish.rfind(' ')+1:]) 
+        dct.setdefault(name, []).append(calor)
+    for key, val in sorted(dct.items()):
+        total_ += sum(val)
+        print(f'{key} - {len(val)} - {"%.1f" % sum(val)} kCal')
+    print('-'*5)
+    print(f'Total: {total_} kCal\n')
+        
+dct = {}
+data = ["Ice cream, strawberry 192",
+"Puff pastry with protein cream 461"]
+total(data)
+data = ["Orange juice drink 54.5",
+"Ice cream, strawberry 192",
+"Puff pastry with protein cream 461"]
+total(data)
